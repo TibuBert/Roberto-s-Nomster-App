@@ -2,39 +2,7 @@
 <h1><%= @place.name %></h1>
 <i><%= @place.address %></i>
 <br/><br/>
-<p><%= @place.description %></p>
-
-  
-  <% if @place.latitude.present? && @place.longitude.present? %>
-  
-  <script>
-
-    function initMap() {
-      var myLatLng = {lat: <%= @place.latitude %>, lng: <%= @place.longitude %>};
-
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
-        center: myLatLng
-      });
-
-      var marker = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        title: 'Hello World!'
-      });
-    }
-  </script>
-
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdYIvWvmdxZ-RdzoJEH3Dhwn1AzL7IOHs&callback=initMap">
-  </script>
-
-  <div id="map"></div>
-<% end %>
-
-<br />
-
-
+<p><%= @place.description %></p
  <div class="float-right">
    <% if current_user && current_user == @place.user %>
     <%= link_to 'Edit', edit_place_path(@place), class: 'btn btn-primary' %>
@@ -74,12 +42,21 @@
   </div>
 </div>
 
+<div class="col-10 offset-1">
+<h1 class="float-left">Comments</h1>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg float-right" data-toggle="modal" data-target="#myModal">
+  Add a comment
+</button>
+
+
+<div class="clear"></div>
 
 
 <h1>Comments</h1>
-
+<div class="row">
 <% @place.comments.each do |comment| %>
-  <div>
+  <div class="col-12 col-sm-6">
     <blockquote>
           <% if comment.humanized_rating.present? %>
         <b><%= comment.humanized_rating %></b> -
@@ -89,3 +66,4 @@
     </blockquote>
   </div>
 <% end %>
+</div>
