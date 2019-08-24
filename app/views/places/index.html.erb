@@ -10,6 +10,15 @@
       <small><%= place.user.email %></small>
     <% end %>
 
+  </div>
+</div class="caption">
+ <%= photo.caption %>
+ </div>
+  <% end %>
+  <5 end %>
+</div>
+</div>
+
 <% if place.comments.present? %>
   <div class="col-12">
   <blockquote>
@@ -24,4 +33,7 @@
   </div>
 <% end %>
 
-<%= will_paginate @places, previous_label: h("<"), next_label: h(">") %>
+ <div class="col-10 offset-1">
+    <%= will_paginate @places, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+</div>
+  
