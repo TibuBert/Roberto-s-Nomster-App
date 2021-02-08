@@ -69,7 +69,7 @@ gem 'devise'
 gem 'will_paginate', '> 3.0'
 gem "geocoder"
 gem "figaro"
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 gem 'rake','~> 12.3','>= 12.3.3'
 gem "fog-aws"
 
